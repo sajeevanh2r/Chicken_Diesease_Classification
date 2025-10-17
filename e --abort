@@ -1,0 +1,77 @@
+[33mcommit 3ddec53fe0fa0a32bd83820b3b139117754acd9f[m[33m ([m[1;36mHEAD[m[33m)[m
+Author: sajeevanh2r <sajeevan2001625@gmail.com>
+Date:   Fri Oct 17 20:45:09 2025 +0530
+
+    CI/CD Added
+
+[33mcommit 68db46515ed9a1799e51f0517d4af75cf47970bc[m
+Author: sajeevanh2r <sajeevan2001625@gmail.com>
+Date:   Fri Oct 17 19:41:03 2025 +0530
+
+    CICD added
+
+[33mcommit d37aef0eede649b667d5332904e9cdf6133b18c9[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: sajeevanh2r <sajeevan2001625@gmail.com>
+Date:   Fri Oct 17 16:40:48 2025 +0530
+
+    predictions and the webapp updated
+
+[33mcommit 58cef6ae13932b745b9cca249a2c9da978586164[m
+Author: sajeevanh2r <sajeevan2001625@gmail.com>
+Date:   Fri Oct 17 15:15:49 2025 +0530
+
+    DVC Added
+
+[33mcommit f3d16c02d95140e0ccbab13ffdefe2ceecc4c197[m
+Author: sajeevanh2r <sajeevan2001625@gmail.com>
+Date:   Fri Oct 17 15:10:46 2025 +0530
+
+    DVC Added
+
+[33mcommit cce18db9570536a8786a7f3cf98e112c07f2f876[m
+Author: sajeevanh2r <sajeevan2001625@gmail.com>
+Date:   Fri Oct 17 14:54:55 2025 +0530
+
+    Finished the Model Evaluation Process
+
+[33mcommit 921dd042c28854e03ee902e12f3dbe009368a855[m
+Author: sajeevanh2r <sajeevan2001625@gmail.com>
+Date:   Fri Oct 17 12:48:13 2025 +0530
+
+    Training added
+
+[33mcommit 5d09352a8d2c2e6b8ed91d917d10a5533d9cef03[m
+Author: sajeevanh2r <sajeevan2001625@gmail.com>
+Date:   Fri Oct 17 09:02:04 2025 +0530
+
+    Prepared the Callback
+
+[33mcommit fb1cc12a27d2d31724a2e878258c0cabb0acfc42[m
+Author: sajeevanh2r <sajeevan2001625@gmail.com>
+Date:   Thu Oct 16 18:53:04 2025 +0530
+
+    Prepared the Base Model
+
+[33mcommit d3d03012f5c4864c2ef585aa355e5e952ba623bf[m
+Author: sajeevanh2r <sajeevan2001625@gmail.com>
+Date:   Thu Oct 16 16:58:50 2025 +0530
+
+    completed the data ingestion
+
+[33mcommit 6dcc462aa74aa0645cd831df9be62724a6021344[m
+Author: sajeevanh2r <sajeevan2001625@gmail.com>
+Date:   Thu Oct 16 12:39:59 2025 +0530
+
+    added the requirements
+
+[33mcommit 968994db66a9a3bcf4a4ccb476a865449fe0170e[m
+Author: sajeevanh2r <sajeevan2001625@gmail.com>
+Date:   Thu Oct 16 11:40:58 2025 +0530
+
+    Created The Folder Structure
+
+[33mcommit 6229e72c89c8ace350e6cdeb11e0534ba3bcb8a7[m
+Author: Radhakrishnan Sajeevan <136316660+sajeevanh2r@users.noreply.github.com>
+Date:   Thu Oct 16 10:00:49 2025 +0530
+
+    Initial commit
