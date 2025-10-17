@@ -1,9 +1,18 @@
 FROM python:3.8-slim-bullseye
 
-RUN apt-get update -y && apt-get install -y awscli
+# Install awscli
+RUN apt-get update -y && \
+    apt-get install -y --no-install-recommends awscli && \
+    rm -rf /var/lib/apt/lists/*
+
+# Set working directory
 WORKDIR /app
 
+# Copy code
 COPY . /app
-RUN pip install -r requirements.txt
 
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Run the app
 CMD ["python3", "app.py"]
