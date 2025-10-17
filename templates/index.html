@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chicken Disease Classifier</title>
+
+  <!-- Bootstrap 5 -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #f7faff, #e3eeff);
+      font-family: "Poppins", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card {
+      border: none;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .title {
+      color: #1a237e;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .image-box {
+      border: 2px dashed #1a237e;
+      border-radius: 12px;
+      width: 280px;
+      height: 280px;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      margin: auto;
+    }
+
+    #photo {
+      display: none;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .btn {
+      border-radius: 10px;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .result-card {
+      background-color: #fff;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      display: none;
+      z-index: 9999;
+    }
+
+    .spinner-border {
+      width: 4rem;
+      height: 4rem;
+      color: #1a237e;
+    }
+
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2 class="text-center mb-5 title">Chicken Disease Image Classifier</h2>
+
+    <div class="row justify-content-center g-5">
+      <!-- Upload & Prediction Card -->
+      <div class="col-md-5">
+        <div class="card p-4 text-center">
+          <div class="image-box mb-4">
+            <img id="photo" src="" alt="Preview" />
+            <video autoplay id="video" style="display:none;"></video>
+          </div>
+          <button class="btn btn-primary me-2" id="uload">Upload Image</button>
+          <button class="btn btn-success" id="send">Predict</button>
+          <input type="file" id="fileinput" style="display:none;" />
+          <input type="hidden" id="url" value="../predict" />
+        </div>
+      </div>
+
+      <!-- Result Card -->
+      <div class="col-md-5">
+        <div class="result-card text-center">
+          <h5 class="text-primary mb-3">Prediction Result</h5>
+          <div id="resultArea">
+            <p class="text-muted">Your result will appear here after prediction.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer mt-5">
+      <p>Developed by <strong>FAITE Labs</strong> | Powered by Flask + TensorFlow</p>
+    </div>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div id="loading" class="loading-overlay">
+    <div class="spinner-border" role="status"></div>
+  </div>
+
+  <!-- JS (Bootstrap + jQuery same as before, functions untouched) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    var base_data = "";
+
+    function sendRequest(base64Data) {
+      if (!base64Data) return alert("Please upload an image first!");
+      $("#loading").show();
+      $.ajax({
+        url: $("#url").val(),
+        type: "POST",
+        cache: false,
+        async: true,
+        crossDomain: true,
+        headers: { "Content-Type": "application/json" },
+        data: JSON.stringify({ image: base64Data }),
+        success: function (res) {
+          $("#loading").hide();
+          if (res[0]?.image) {
+            $("#resultArea").html(
+              `<h4 class="text-success">${res[0].image}</h4>`
+            );
+          } else if (res.error) {
+            $("#resultArea").html(
+              `<p class="text-danger">Error: ${res.error}</p>`
+            );
+          } else {
+            $("#resultArea").html("<p>No result found.</p>");
+          }
+        },
+        error: function (err) {
+          $("#loading").hide();
+          $("#resultArea").html(
+            `<p class="text-danger">Prediction failed. Check console for details.</p>`
+          );
+          console.error(err);
+        },
+      });
+    }
+
+    $(document).ready(function () {
+      $("#uload").click(function () {
+        $("#fileinput").trigger("click");
+      });
+
+      $("#fileinput").change(function () {
+        if (this.files && this.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+            var url = e.target.result;
+            var img = new Image();
+            img.onload = function () {
+              var canvas = document.createElement("canvas");
+              var ctx = canvas.getContext("2d");
+              canvas.height = this.height;
+              canvas.width = this.width;
+              ctx.drawImage(this, 0, 0);
+              base_data = canvas
+                .toDataURL("image/jpeg", 1.0)
+                .replace(/^data:image.+;base64,/, "");
+            };
+            img.src = url;
+            $("#photo").attr("src", url).show();
+          };
+          reader.readAsDataURL(this.files[0]);
+        }
+      });
+
+      $("#send").click(function () {
+        sendRequest(base_data);
+      });
+    });
+  </script>
+</body>
+</html>
