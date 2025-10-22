@@ -162,7 +162,8 @@ IAM is used to create users, roles, and permissions for securely accessing AWS s
 EC2 hosts the Docker container running the Flask app for inference. It provides scalable compute resources for model deployment.  
 
 *Add image here:*  
-![EC2 Screenshot](path_to_ec2_image.png)
+<img width="1918" height="850" alt="aws ec2" src="https://github.com/user-attachments/assets/ce127da5-8532-4053-bad9-3de0825a9d59" />
+
 
 ---
 
@@ -172,7 +173,8 @@ EC2 hosts the Docker container running the Flask app for inference. It provides 
 ECR stores Docker images of the project. It integrates with CI/CD pipelines for automated deployment.  
 
 *Add image here:*  
-![ECR Screenshot](path_to_ecr_image.png)
+<img width="1917" height="791" alt="ECR - aws2" src="https://github.com/user-attachments/assets/7096ec62-0962-4744-9fe3-716d1fbdae58" />
+
 
 ---
 
@@ -185,7 +187,8 @@ GitHub Actions automates the pipeline:
 - Deploys on EC2 automatically  
 
 *Add image here:*  
-![CI/CD Screenshot](path_to_cicd_image.png)
+<img width="1918" height="870" alt="cii cd" src="https://github.com/user-attachments/assets/0cd7d52b-f69d-42b9-b59c-053a4f9cf109" />
+
 
 ---
 
@@ -199,7 +202,8 @@ Step-by-step deployment:
 4. Run container to serve Flask API  
 
 *Add image here:*  
-![Deployment Screenshot](path_to_deployment_image.png)
+<img width="1906" height="852" alt="aws work" src="https://github.com/user-attachments/assets/70f001ef-1f25-4739-94fa-669c6b169c86" />
+
 
 ---
 
@@ -209,7 +213,7 @@ Step-by-step deployment:
 Shows the pipeline stages managed by DVC (data ingestion, training, evaluation, model artifacts).  
 
 *Add image here:*  
-![DVC DAG Screenshot](path_to_dvc_dag_image.png)
+<img width="1288" height="477" alt="dvc dag relationship" src="https://github.com/user-attachments/assets/c84311b1-c120-4cbe-9cec-2fa2a93b2be6" />
 
 ---
 
@@ -219,7 +223,8 @@ Shows the pipeline stages managed by DVC (data ingestion, training, evaluation, 
 Illustrates integration between GitHub Actions and AWS for automated deployment.  
 
 *Add image here:*  
-![GitHub-AWS Connection Screenshot](path_to_github_aws_image.png)
+<img width="1917" height="851" alt="gith hub to aws connected" src="https://github.com/user-attachments/assets/46a39f0a-31c4-407e-a369-d4548930b8d3" />
+
 
 ---
 
@@ -231,7 +236,11 @@ Illustrates integration between GitHub Actions and AWS for automated deployment.
 - Screenshot of Flask app running with prediction results  
 
 *Add image here:*  
-![Model Deployment Results Screenshot](path_to_results_image.png)
+<img width="1912" height="928" alt="1" src="https://github.com/user-attachments/assets/c74d9404-fe57-45cf-92bc-047be70f0fa7" />
+<img width="1918" height="937" alt="2" src="https://github.com/user-attachments/assets/631c289e-0ecb-4b08-9840-263e9e47f4a6" />
+<img width="1915" height="862" alt="result 3" src="https://github.com/user-attachments/assets/f3c9e6b1-a26f-4814-bb3d-083067882a8e" />
+<img width="1918" height="851" alt="results 2" src="https://github.com/user-attachments/assets/94bd7443-3ae2-46b8-b35f-07f5591bbf8c" />
+
 
 ---
 
@@ -256,7 +265,3 @@ Special thanks to all open-source contributors and MLOps resources that helped i
 
 ---
 
-```
-
-Would you like me to now **append a ready-to-use `Dockerfile` (for Flask + TensorFlow + DVC)** section at the bottom of this README so it’s fully production-ready for deployment on AWS or locally?
-```
