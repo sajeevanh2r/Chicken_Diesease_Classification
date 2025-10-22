@@ -54,12 +54,6 @@ Then open your browser at:
 http://127.0.0.1:5000/
 ```
 
-or
-
-```
-http://0.0.0.0:80/
-```
-
 ---
 
 ## 🧩 DVC Commands
@@ -158,10 +152,9 @@ This section explains the **end-to-end workflow and deployment** of the Chicken 
 IAM is used to create users, roles, and permissions for securely accessing AWS services (EC2, ECR, etc.).  
 
 *Add image here:*  
-![IAM Scre<img width="1915" height="853" alt="iam user -aws1" src="https://github.com/user-attachments/assets/a1c99cfc-dc1e-457d-86de-823b991e1a6a" />
-enshot](path_to_iam_image.png)
 
----
+<img width="1915" height="853" alt="iam user -aws1" src="https://github.com/user-attachments/assets/46849014-2a5d-4ce1-abcb-b9fb0e2fc568" />
+
 
 ### **2. EC2 (Elastic Compute Cloud)**
 
